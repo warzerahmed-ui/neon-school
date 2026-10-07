@@ -1,0 +1,19 @@
+{
+  "overview": "A neon-styled school management system with Internet Identity login and a protected dashboard for students and classes.",
+  "features": [
+    "Sign in securely with Internet Identity",
+    "Neon dark dashboard with overview statistics",
+    "Add, edit, search and delete students",
+    "Create, rename and delete classes",
+    "Assign students to classes",
+    "Responsive layout for mobile and desktop"
+  ],
+  "category": "school-management",
+  "tags": [
+    "education",
+    "dashboard",
+    "neon",
+    "kurdish"
+  ],
+  "last_updated": "2026-10-07T19:53:01.948Z"
+}

@@ -1,0 +1,253 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/assets/fonts/SpaceGrotesk.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("/assets/fonts/Nunito.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/assets/fonts/JetBrainsMono.woff2") format("woff2");
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    /* Neon Şev runs dark-first; :root mirrors the dark theme so the app is
+       neon even before the `.dark` class is applied. */
+    --font-display: "Space Grotesk", "Nunito", system-ui, sans-serif;
+    --font-body: "Nunito", "Segoe UI", Tahoma, "Noto Naskh Arabic", sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
+    --font-arabic: "Noto Naskh Arabic", "Segoe UI", Tahoma, "Geeza Pro",
+      sans-serif;
+    --radius: 0.75rem;
+
+    /* Deep near-black canvas with a faint cool cast */
+    --background: 0.13 0.018 265;
+    --foreground: 0.94 0.012 250;
+
+    /* Elevated glass surfaces */
+    --card: 0.17 0.022 265;
+    --card-foreground: 0.94 0.012 250;
+    --popover: 0.19 0.026 265;
+    --popover-foreground: 0.94 0.012 250;
+
+    /* Glowing cyan primary */
+    --primary: 0.78 0.15 195;
+    --primary-foreground: 0.13 0.018 265;
+
+    --secondary: 0.23 0.028 265;
+    --secondary-foreground: 0.88 0.012 250;
+    --muted: 0.22 0.024 265;
+    --muted-foreground: 0.6 0.02 255;
+
+    /* Glowing magenta accent */
+    --accent: 0.72 0.24 330;
+    --accent-foreground: 0.13 0.018 330;
+
+    --destructive: 0.62 0.24 22;
+    --destructive-foreground: 0.96 0.01 22;
+    --success: 0.72 0.17 158;
+    --success-foreground: 0.13 0.02 158;
+    --warning: 0.8 0.16 82;
+    --warning-foreground: 0.16 0.02 82;
+
+    --border: 0.3 0.03 265;
+    --input: 0.3 0.03 265;
+    --ring: 0.78 0.15 195;
+
+    /* Neon data-viz ramps */
+    --chart-1: 0.78 0.15 195;
+    --chart-2: 0.72 0.24 330;
+    --chart-3: 0.74 0.17 158;
+    --chart-4: 0.82 0.16 82;
+    --chart-5: 0.66 0.2 285;
+
+    /* Sidebar: darker than content, neon rail on active */
+    --sidebar: 0.15 0.02 265;
+    --sidebar-foreground: 0.9 0.012 250;
+    --sidebar-primary: 0.78 0.15 195;
+    --sidebar-primary-foreground: 0.13 0.018 265;
+    --sidebar-accent: 0.23 0.028 265;
+    --sidebar-accent-foreground: 0.94 0.012 250;
+    --sidebar-border: 0.28 0.03 265;
+    --sidebar-ring: 0.78 0.15 195;
+
+    /* Reusable atmosphere */
+    --gradient-primary: linear-gradient(
+      135deg,
+      oklch(0.78 0.15 195),
+      oklch(0.72 0.24 330)
+    );
+    --gradient-subtle: linear-gradient(
+      180deg,
+      oklch(0.19 0.026 265),
+      oklch(0.15 0.02 265)
+    );
+    --gradient-surface: linear-gradient(
+      160deg,
+      oklch(0.2 0.03 265 / 0.9),
+      oklch(0.15 0.02 265 / 0.7)
+    );
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 0.13 0.018 265;
+    --foreground: 0.94 0.012 250;
+    --card: 0.17 0.022 265;
+    --card-foreground: 0.94 0.012 250;
+    --popover: 0.19 0.026 265;
+    --popover-foreground: 0.94 0.012 250;
+
+    --primary: 0.78 0.15 195;
+    --primary-foreground: 0.13 0.018 265;
+
+    --secondary: 0.23 0.028 265;
+    --secondary-foreground: 0.88 0.012 250;
+    --muted: 0.22 0.024 265;
+    --muted-foreground: 0.6 0.02 255;
+
+    --accent: 0.72 0.24 330;
+    --accent-foreground: 0.13 0.018 330;
+
+    --destructive: 0.62 0.24 22;
+    --destructive-foreground: 0.96 0.01 22;
+    --success: 0.72 0.17 158;
+    --success-foreground: 0.13 0.02 158;
+    --warning: 0.8 0.16 82;
+    --warning-foreground: 0.16 0.02 82;
+
+    --border: 0.3 0.03 265;
+    --input: 0.3 0.03 265;
+    --ring: 0.78 0.15 195;
+
+    --chart-1: 0.78 0.15 195;
+    --chart-2: 0.72 0.24 330;
+    --chart-3: 0.74 0.17 158;
+    --chart-4: 0.82 0.16 82;
+    --chart-5: 0.66 0.2 285;
+
+    --sidebar: 0.15 0.02 265;
+    --sidebar-foreground: 0.9 0.012 250;
+    --sidebar-primary: 0.78 0.15 195;
+    --sidebar-primary-foreground: 0.13 0.018 265;
+    --sidebar-accent: 0.23 0.028 265;
+    --sidebar-accent-foreground: 0.94 0.012 250;
+    --sidebar-border: 0.28 0.03 265;
+    --sidebar-ring: 0.78 0.15 195;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    background-image: radial-gradient(
+        ellipse 80% 55% at 12% -8%,
+        oklch(0.78 0.15 195 / 0.1),
+        transparent 60%
+      ),
+      radial-gradient(
+        ellipse 70% 50% at 92% 4%,
+        oklch(0.72 0.24 330 / 0.09),
+        transparent 62%
+      );
+    background-attachment: fixed;
+  }
+
+  /* Kurdish (Sorani) — Arabic script renders right-to-left */
+  [dir="rtl"],
+  [lang="ckb"] {
+    font-family: var(--font-arabic);
+  }
+
+  [dir="rtl"] .font-display,
+  [lang="ckb"] .font-display {
+    font-family: "Space Grotesk", var(--font-arabic);
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  /* Ambient neon atmosphere */
+  .bg-neon-atmosphere {
+    background-image: radial-gradient(
+        ellipse 60% 45% at 15% 0%,
+        oklch(0.78 0.15 195 / 0.14),
+        transparent 60%
+      ),
+      radial-gradient(
+        ellipse 55% 45% at 85% 5%,
+        oklch(0.72 0.24 330 / 0.12),
+        transparent 60%
+      );
+  }
+
+  /* Glass panel surface */
+  .bg-glass {
+    background: var(--gradient-surface);
+    backdrop-filter: blur(14px);
+  }
+
+  /* Gradient text for hero/headline accents */
+  .text-neon-gradient {
+    background-image: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Neon hairline border that lights up */
+  .border-neon {
+    border: 1px solid oklch(0.78 0.15 195 / 0.35);
+  }
+  .border-neon-accent {
+    border: 1px solid oklch(0.72 0.24 330 / 0.35);
+  }
+
+  /* Soft glow shadows — restrained, not overpowering */
+  .shadow-glow-cyan {
+    box-shadow: 0 0 0 1px oklch(0.78 0.15 195 / 0.18), 0 8px 32px -12px
+      oklch(0.78 0.15 195 / 0.45);
+  }
+  .shadow-glow-magenta {
+    box-shadow: 0 0 0 1px oklch(0.72 0.24 330 / 0.18), 0 8px 32px -12px
+      oklch(0.72 0.24 330 / 0.45);
+  }
+
+  /* Focus ring tuned for dark neon surfaces */
+  .focus-neon:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px oklch(0.13 0.018 265), 0 0 0 4px
+      oklch(0.78 0.15 195 / 0.55);
+  }
+
+  /* Scrollbar tuned to the dark canvas */
+  .scrollbar-neon::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  .scrollbar-neon::-webkit-scrollbar-track {
+    background: oklch(0.15 0.02 265);
+  }
+  .scrollbar-neon::-webkit-scrollbar-thumb {
+    background: oklch(0.3 0.03 265);
+    border-radius: 9999px;
+  }
+  .scrollbar-neon::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.78 0.15 195 / 0.5);
+  }
+}
